@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
+
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+}
+
+html {
+    position: fixed;
+
+    height: 100%;
+    width: 100%;
+
+}
+
+.app {
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Nunito', sans-serif;
+}
+
+.change_color_scheme {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    
+    background-color: #eee;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    
+    display: block;
+    
+    cursor: pointer;
+}
+
+
+.change_color_scheme svg {
+    width: 24px;
+    height: 24px;
+}
+
+.change_color_scheme svg * {
+    stroke: #000;
+}
+
+#icon-sun {
+    display: none;
+}
+
+#icon-moon {
+    display: block;
+}
+
+.word {
+    white-space:nowrap;
+}
+
+.char {
+    position: relative;
+
+    color: grey;
+    font-size: 5rem;
+    
+    display: inline-block;
+}
+
+.char.active {
+    color: tomato;
+}
+
+.char.active::before {
+    content: '';
+    
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    transform: translate(-5%, 0);
+
+    height: 3px;
+    width: 90%;
+
+    background-color: tomato;
+}
+
+.history {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translate(-50%, 100%);
+
+    color: grey;
+    font-size: 1.5rem;
+    font-weight: 300;
+    opacity: 0;
+}
+
+.history.show {
+    animation: history_appear 1s linear;
+}
+
+@keyframes history_appear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 100%);
+    }
+    25% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    75% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, 100%);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .char {
+        font-size: 3rem;
+    }
+}
+
+
+/* Night mode */
+
+.app.night {
+    background-color: #1f1f1f;
+}
+
+.app.night .char:not(.active) {
+    color: #ddd;
+}
+
+.app.night .history {
+    color: #bbb;
+}
+
+.app.night .change_color_scheme {
+    background-color: #555;
+    border: 1px solid #000;
+}
+
+.app.night .change_color_scheme svg * {
+    stroke: #fff;
+}
+
+.app.night #icon-sun {
+    display: block;
+}
+
+.app.night #icon-moon {
+    display: none;
+}
