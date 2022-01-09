@@ -12,3 +12,6 @@ the string
 - when all letters from the word have been removed the program shows the next
 word
 - Try to make the UI design nice and simple
+
+## Demo
+[https://agitated-wing-b7f584.netlify.app](https://agitated-wing-b7f584.netlify.app)
